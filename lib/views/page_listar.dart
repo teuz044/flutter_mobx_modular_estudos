@@ -6,7 +6,7 @@ import 'package:crud_mobx_w3/controller/aluno_controller.dart';
 class PageListar extends StatelessWidget {
   final AlunoController controller;
 
-  const PageListar({required this.controller});
+  const PageListar({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +28,16 @@ class PageListar extends StatelessWidget {
                   background: Container(
                     color: Colors.red,
                   ),
-                   key: ObjectKey(controller.getAllAlunos[index]),
+                  key: ObjectKey(controller.getAllAlunos[index]),
                   onDismissed: (direction) {
                     controller.removeAluno(index);
                   },
                   child: ListTile(
                     title: Text(controller.getAllAlunos[index].nome),
                     subtitle: Text(controller.getAllAlunos[index].descricao),
+                    onTap: () {
+                      Modular.to.navigate('/editar/$index');
+                    },
                   ),
                 );
               },

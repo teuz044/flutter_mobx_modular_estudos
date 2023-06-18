@@ -23,11 +23,11 @@ void addAluno(String nome, String descricao) {
 @computed
 List<AlunoModel> get getAllAlunos => alunos;
 
-  @action
-  void updateAluno(int index, String nome, String descricao) {
-    final aluno = AlunoModel(descricao: descricao, nome: nome);
-    alunos[index] = aluno;
-  }
+@action
+void updateAluno(int index, String nome, String descricao) {
+  final aluno = AlunoModel(descricao: descricao, nome: nome);
+  alunos[index] = aluno;
+}
 
   @action
   void removeAluno(int index) {
